@@ -3,33 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Actuarial & Supply Chain Portfolio</title>
+    <title>Kaylie Nguyen | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
-        header { text-align: center; margin-bottom: 40px; }
-        .project-container { margin-top: 40px; }
-        /* Makes the embedded Python app responsive */
-        iframe { width: 100%; height: 600px; border: 1px solid #ccc; border-radius: 8px; }
+        /* Modern Reset and Base Styles */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #f4f7f6; 
+            color: #2d3748; 
+            line-height: 1.6; 
+        }
+        
+        /* Layout Container */
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+
+        /* Header Section */
+        header { 
+            text-align: center; 
+            margin-bottom: 40px; 
+            padding: 40px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; }
+        header h2 { font-size: 1.2rem; font-weight: 300; opacity: 0.9; margin-bottom: 15px; }
+        .contact-info { font-size: 0.95rem; font-weight: 400; opacity: 0.8; }
+        .contact-info a { color: #fff; text-decoration: underline; }
+
+        /* Card Components */
+        .card { 
+            background: #ffffff; 
+            border-radius: 12px; 
+            padding: 35px; 
+            margin-bottom: 30px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03); 
+            transition: transform 0.2s ease;
+        }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+        .card h3 { 
+            color: #1e3a8a; 
+            font-size: 1.4rem; 
+            margin-bottom: 20px; 
+            border-bottom: 2px solid #edf2f7; 
+            padding-bottom: 10px;
+        }
+
+        /* Experience Timeline Elements */
+        .job { margin-bottom: 25px; }
+        .job:last-child { margin-bottom: 0; }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+        .job-title { font-weight: 600; font-size: 1.1rem; color: #2d3748; }
+        .job-company { font-weight: 600; color: #3b82f6; }
+        .job-date { font-size: 0.9rem; color: #718096; }
+        .job-bullets { margin-left: 20px; color: #4a5568; font-size: 0.95rem; }
+        .job-bullets li { margin-bottom: 6px; }
+
+        /* Skills Tags */
+        .skills-category { margin-bottom: 15px; }
+        .skills-category strong { display: block; margin-bottom: 8px; font-size: 0.95rem; color: #4a5568;}
+        .skill-tag { 
+            display: inline-block; 
+            background: #ebf4ff; 
+            color: #1e3a8a; 
+            padding: 6px 14px; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 600;
+            margin: 0 6px 8px 0;
+        }
+
+        /* Projects/Iframe Area */
+        .project-description { margin-bottom: 20px; color: #4a5568; }
+        iframe { 
+            width: 100%; 
+            height: 650px; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 8px; 
+            background-color: #f8fafc;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .job-header { flex-direction: column; }
+            .job-date { margin-top: 5px; }
+        }
     </style>
 </head>
 <body>
 
+<div class="container">
+    
+    <!-- Header Area -->
     <header>
-        <h1>Jane Doe | Data Professional</h1>
-        <p>Actuary | Supply Chain Analyst | Python Developer</p>
+        <h1>Kaylie Nguyen</h1>
+        <h2>Supply Chain Professional & Data Analyst</h2>
+        <div class="contact-info">
+            Edinburgh, UK | phuongthaotyb55@gmail.com
+        </div>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I build data-driven models to optimize supply chains and assess financial risk. Below is a live demonstration of my work.</p>
-    </section>
+    <!-- Professional Summary -->
+    <div class="card">
+        <h3>About Me</h3>
+        <p>Analytical Supply Chain professional combining an MSc in Data-Intensive Analysis (University of St. Andrews) with global hands-on experience in Demand, Production, and Material Planning. I specialize in bridging the gap between supply chain operations and data science—leveraging tools like SAP S/4HANA and OMP to optimize production, while utilizing Python and machine learning to automate complex forecasting models. Passionate about driving E2E efficiency through data-driven decision-making and cross-functional alignment.</p>
+    </div>
 
-    <section id="projects" class="project-container">
-        <h2>Live Project: Supply Chain Reorder Point Calculator</h2>
-        <p>Adjust the parameters below to see the Python model calculate the optimal inventory reorder point in real-time.</p>
+    <!-- Live Projects Section -->
+    <div class="card">
+        <h3>Live Supply Chain Models</h3>
+        <p class="project-description">Below is an interactive Python application demonstrating my approach to supply chain optimization. Adjust the parameters to see real-time recalculations for safety stock and optimal reorder points.</p>
         
-        <iframe src="https://your-app-name.streamlit.app/?embed=true"></iframe>
-    </section>
+        <!-- Replace the SRC below with your actual Streamlit URL when deployed -->
+        <iframe src="https://your-app-name.streamlit.app/?embed=true" title="Supply Chain Reorder Point Calculator"></iframe>
+    </div>
+
+    <!-- Experience Summary -->
+    <div class="card">
+        <h3>Experience Highlights</h3>
+        
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title"><span class="job-company">COTY</span> | Supply Chain Planner</div>
+                <div class="job-date">Jun 2024 – Sep 2025 | Barcelona, Spain</div>
+            </div>
+            <ul class="job-bullets">
+                <li>Managed planning and execution for 4 production lines in OMP (150+ products), optimizing inventory and keeping excess stock below 5%.</li>
+                <li>Conducted RCCP reviews and collaborated with DRP/Material teams to resolve capacity constraints and mitigate component shortages.</li>
+                <li>Partnered with New Product Development (NPD) to prioritize production between new launches and core products, ensuring on-time market availability.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title"><span class="job-company">COTY</span> | Global Demand Planner</div>
+                <div class="job-date">Aug 2023 – May 2024 | Amsterdam Zuid, Netherlands</div>
+            </div>
+            <ul class="job-bullets">
+                <li>Automated operational forecast generation using Python, reducing reporting time by 80% by integrating historical data and marketing inputs.</li>
+                <li>Managed biannual giftset campaigns, aligning cross-functional stakeholders from forecast to production, achieving within 5% forecast bias vs. market demand.</li>
+                <li>Designed Excel-based visual dashboards using Power Query to track and report performance to commercial and supply teams.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="card">
+        <h3>Technical Arsenal</h3>
+        
+        <div class="skills-category">
+            <strong>Supply Chain & Planning</strong>
+            <span class="skill-tag">Demand Forecasting</span>
+            <span class="skill-tag">Production Scheduling</span>
+            <span class="skill-tag">RCCP & S&OP</span>
+            <span class="skill-tag">MRP & DRP</span>
+            <span class="skill-tag">Inventory Management</span>
+        </div>
+
+        <div class="skills-category">
+            <strong>Data Analytics & Programming</strong>
+            <span class="skill-tag">Python (Pandas, NumPy, Scikit-learn)</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">VBA Macros</span>
+            <span class="skill-tag">Machine Learning</span>
+        </div>
+
+        <div class="skills-category">
+            <strong>ERP & Visualization</strong>
+            <span class="skill-tag">SAP S/4HANA / SAP ECC</span>
+            <span class="skill-tag">OMP</span>
+            <span class="skill-tag">Kinaxis Response</span>
+            <span class="skill-tag">Power BI (DAX)</span>
+            <span class="skill-tag">Tableau</span>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>
