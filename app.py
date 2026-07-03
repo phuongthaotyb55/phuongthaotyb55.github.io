@@ -11,6 +11,7 @@ from content.bio import (
 )
 from content.projects import PROJECTS
 from content.temporal_graphs import ALGORITHMS, GRAPH_TYPES, BENCHMARK_SUMMARY
+from content.timeline import TIMELINE
 
 app = Flask(__name__)
 
@@ -24,6 +25,7 @@ def index():
         hero_hook=HERO_HOOK,
         bio=BIO_PARAGRAPHS,
         fact_chips=FACT_CHIPS,
+        timeline=TIMELINE,
         projects=PROJECTS,
         email=EMAIL,
         github_url=GITHUB_URL,

@@ -17,13 +17,37 @@
     <h2>About</h2>
     <div class="section-underline"></div>
     {% for para in bio %}
-    <p>{{ para }}</p>
+    <p>{{ para | safe }}</p>
     {% endfor %}
     <div class="fact-chips">
       {% for fact in fact_chips %}
       <span class="chip">{{ fact }}</span>
       {% endfor %}
     </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="container">
+    <h2>Timeline</h2>
+    <div class="section-underline"></div>
+    <ol class="timeline">
+      {% for item in timeline %}
+      <li class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">{{ item.date }}</span>
+          <h3>{{ item.title }}</h3>
+          <p class="timeline-org">
+            {{ item.org }}{% if item.location %} &middot; {{ item.location }}{% endif %}
+          </p>
+          {% if item.description %}
+          <p class="timeline-description">{{ item.description }}</p>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
   </div>
 </section>
 

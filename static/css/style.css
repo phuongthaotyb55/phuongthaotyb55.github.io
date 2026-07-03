@@ -113,6 +113,52 @@ section h2 {
   font-size: 0.85rem;
 }
 
+/* Timeline */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  max-width: 720px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  left: 5px;
+  width: 2px;
+  background: var(--color-border);
+}
+.timeline-item {
+  position: relative;
+  padding: 0 0 1.75rem 2rem;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 2px solid var(--color-surface);
+  box-shadow: 0 0 0 2px var(--color-border);
+}
+.timeline-date {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-accent-dark);
+  margin-bottom: 0.2rem;
+}
+.timeline-content h3 { margin: 0 0 0.15rem; font-size: 1.05rem; color: var(--color-ink); }
+.timeline-org { margin: 0 0 0.35rem; color: var(--color-muted); font-size: 0.9rem; font-weight: 600; }
+.timeline-description { margin: 0; color: var(--color-muted); font-size: 0.9rem; }
+
 /* Projects grid */
 .projects-grid {
   display: grid;
