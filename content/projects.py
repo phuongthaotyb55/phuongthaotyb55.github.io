@@ -1,16 +1,17 @@
 PROJECTS = [
     {
         "slug": "temporal-graphs",
-        "title": "Exploring Temporal Graphs with Constraint Programming",
+        "title": "Exploring Temporal Graphs with Constraint Programming with Single Agent",
         "summary": (
-            "Generates temporal graphs and implements five algorithms — from greedy "
-            "heuristics to constraint-solver models — to solve the Temporal "
-            "Exploration Problem."
+            "Generates random temporal graphs and implements constraint-solver models "
+            "benchmarking against different greedy and heuristics algorithms "
+            "to solve the Temporal Exploration Problem."
         ),
-        "tags": ["Python", "NetworkX", "MiniZinc", "Pandas", "NumPy", "Multiprocessing"],
+        "tags": [ "Python", "NetworkX", "MiniZinc", "Pandas", "NumPy", "Multiprocessing"],
         "repo_url": "https://github.com/phuongthaotyb55/tem_graph_py",
         "has_detail_page": True,
         "status": None,
+        "category": "Dissertation Project",
     },
     {
         "slug": "fraud-detection",
@@ -20,5 +21,6 @@ PROJECTS = [
         "repo_url": "https://github.com/phuongthaotyb55/Fraud-Detection",
         "has_detail_page": False,
         "status": "in-progress",
+        "category": "Personal Project",
     },
 ]

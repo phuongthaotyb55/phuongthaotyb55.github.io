@@ -4,8 +4,7 @@ EMAIL = "phuongthaotyb55@gmail.com"
 GITHUB_URL = "https://github.com/phuongthaotyb55"
 
 HERO_HOOK = (
-    "Routing time-respecting walks through temporal graphs — and, before that, "
-    "real shipments through Amsterdam and Barcelona."
+    "This personal website is not only about me but also the things I learned"
 )
 
 BIO_PARAGRAPHS = [

@@ -76,17 +76,18 @@
   <div class="container">
     <h2>Try it Live</h2>
     <div class="section-underline"></div>
-    <!--
-      Reserved for a future Pyodide-powered interactive demo: a widget where
-      visitors pick num_nodes / diameter_prob and run greedy_dijkstras.py live
-      in the browser via WebAssembly (client-side only, so it stays compatible
-      with GitHub Pages' static hosting). See static/js/README for notes.
-    -->
-    <div id="demo-root" class="demo-placeholder">
-      Interactive demo coming soon.
+    <p class="project-intro">
+      Generates a random temporal graph and solves it entirely in your browser
+      (via <a href="https://pyodide.org/" target="_blank" rel="noopener noreferrer">Pyodide</a> —
+      no server involved), using a dependency-free port of the algorithms above.
+    </p>
+    <div id="demo-root" data-demo-src="{{ url_for('static', filename='py/temporal_demo.py') }}">
+      <noscript>This demo requires JavaScript.</noscript>
     </div>
   </div>
 </section>
+
+<script src="{{ url_for('static', filename='js/temporal-demo.js') }}" defer></script>
 
 <div class="container cta-center">
   <a class="btn btn-primary" href="https://github.com/phuongthaotyb55/tem_graph_py" target="_blank" rel="noopener noreferrer">View on GitHub</a>
