@@ -156,8 +156,7 @@ section h2 {
   margin-bottom: 0.2rem;
 }
 .timeline-content h3 { margin: 0 0 0.15rem; font-size: 1.05rem; color: var(--color-ink); }
-.timeline-org { margin: 0 0 0.35rem; color: var(--color-muted); font-size: 0.9rem; font-weight: 600; }
-.timeline-description { margin: 0; color: var(--color-muted); font-size: 0.9rem; }
+.timeline-org { margin: 0; color: var(--color-muted); font-size: 0.9rem; font-weight: 600; }
 
 /* Projects grid */
 .projects-grid {

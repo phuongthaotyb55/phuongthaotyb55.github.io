@@ -41,9 +41,6 @@
           <p class="timeline-org">
             {{ item.org }}{% if item.location %} &middot; {{ item.location }}{% endif %}
           </p>
-          {% if item.description %}
-          <p class="timeline-description">{{ item.description }}</p>
-          {% endif %}
         </div>
       </li>
       {% endfor %}
