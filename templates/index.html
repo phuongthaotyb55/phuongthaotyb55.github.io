@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <h1>{{ tagline }}</h1>
+    <p class="hook">{{ hero_hook }}</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#projects">View Projects</a>
+      <a class="btn btn-outline" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container">
+    <h2>About</h2>
+    <div class="section-underline"></div>
+    {% for para in bio %}
+    <p>{{ para }}</p>
+    {% endfor %}
+    <div class="fact-chips">
+      {% for fact in fact_chips %}
+      <span class="chip">{{ fact }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section-alt">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="section-underline"></div>
+    <div class="projects-grid">
+      {% for project in projects %}
+      <div class="card">
+        {% if project.status == "in-progress" %}
+        <span class="badge-in-progress">In Progress</span>
+        {% endif %}
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.summary }}</p>
+        <div class="tag-row">
+          {% for tag in project.tags %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% if project.has_detail_page %}
+        <a class="card-link" href="/projects/{{ project.slug }}/">View project &rarr;</a>
+        {% else %}
+        <a class="card-link" href="{{ project.repo_url }}" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <div class="section-underline"></div>
+    <ul class="contact-list">
+      <li>Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
+      <li>GitHub: <a href="{{ github_url }}" target="_blank" rel="noopener noreferrer">{{ github_url }}</a></li>
+      <!-- LinkedIn: add here once available -->
+    </ul>
+  </div>
+</section>
+{% endblock %}

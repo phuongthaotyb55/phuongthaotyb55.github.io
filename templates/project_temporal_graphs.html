@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Temporal Graph Exploration — {{ name }}{% endblock %}
+
+{% block content %}
+<section class="project-header">
+  <div class="container">
+    <a class="back-link" href="/#projects">&larr; Back to projects</a>
+    <h1>Exploring Temporal Graphs with Constraint Programming</h1>
+    <div class="tag-row">
+      {% for tag in ["Python", "NetworkX", "MiniZinc", "Pandas", "NumPy", "Multiprocessing"] %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    <p class="project-intro">
+      This project generates temporal graphs and implements multiple algorithms to
+      solve the Temporal Exploration Problem (TEXP): given a temporal graph, find a
+      time-respecting walk starting from node 1 that visits every node within
+      <code>t_max</code> timesteps, or as early as possible.
+    </p>
+
+    <img class="project-image" src="{{ url_for('static', filename='images/projects/temporal-graphs/exploration-path-example.png') }}"
+         alt="Example temporal graph with a highlighted exploration path">
+    <p class="image-caption">
+      Example temporal graph exploration — the highlighted path shows a valid
+      time-respecting walk visiting every node.
+    </p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <h2>Algorithms</h2>
+    <div class="section-underline"></div>
+    <div class="algorithm-list">
+      {% for algo in algorithms %}
+      <div class="algorithm-item">
+        <h3>{{ algo.name }}</h3>
+        <div class="algo-file">{{ algo.file }}</div>
+        <p>{{ algo.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Graph Types</h2>
+    <div class="section-underline"></div>
+    <div class="graph-types-list">
+      {% for gt in graph_types %}
+      <div class="graph-type-card">
+        <h4>{{ gt.name }}</h4>
+        <p>{{ gt.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <h2>Benchmarking</h2>
+    <div class="section-underline"></div>
+    <p>{{ benchmark_summary }}</p>
+    <img class="project-image" src="{{ url_for('static', filename='images/projects/temporal-graphs/scaling-regression-plot.png') }}"
+         alt="Empirical runtime vs theoretical complexity bound scaling plot">
+    <p class="image-caption">
+      Empirical runtime vs. theoretical complexity bound across MiniZinc trials.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Try it Live</h2>
+    <div class="section-underline"></div>
+    <!--
+      Reserved for a future Pyodide-powered interactive demo: a widget where
+      visitors pick num_nodes / diameter_prob and run greedy_dijkstras.py live
+      in the browser via WebAssembly (client-side only, so it stays compatible
+      with GitHub Pages' static hosting). See static/js/README for notes.
+    -->
+    <div id="demo-root" class="demo-placeholder">
+      Interactive demo coming soon.
+    </div>
+  </div>
+</section>
+
+<div class="container cta-center">
+  <a class="btn btn-primary" href="https://github.com/phuongthaotyb55/tem_graph_py" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+</div>
+<div style="height: 3rem;"></div>
+{% endblock %}
