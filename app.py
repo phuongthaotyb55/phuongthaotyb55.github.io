@@ -12,18 +12,6 @@ from content.bio import (
 from content.projects import PROJECTS
 from content.temporal_graphs import ALGORITHMS, GRAPH_TYPES, BENCHMARK_SUMMARY
 from content.timeline import TIMELINE
-from content.npd_tool import (
-    TITLE as NPD_TITLE,
-    TAGS as NPD_TAGS,
-    INTRO as NPD_INTRO,
-    CONFIDENTIALITY_NOTE as NPD_CONFIDENTIALITY_NOTE,
-    ARCHITECTURE as NPD_ARCHITECTURE,
-    CODE_HIGHLIGHTS as NPD_CODE_HIGHLIGHTS,
-    DOWNLOADS as NPD_DOWNLOADS,
-    DEMO_PRODUCTS as NPD_DEMO_PRODUCTS,
-    DEMO_CUSTOMERS as NPD_DEMO_CUSTOMERS,
-    DEMO_TOTAL_ANNUAL_VOLUME as NPD_DEMO_TOTAL_ANNUAL_VOLUME,
-)
 
 app = Flask(__name__)
 
@@ -53,25 +41,6 @@ def project_temporal_graphs():
         algorithms=ALGORITHMS,
         graph_types=GRAPH_TYPES,
         benchmark_summary=BENCHMARK_SUMMARY,
-    )
-
-
-@app.route("/projects/npd-forecasting-tool/")
-def project_npd_tool():
-    return render_template(
-        "project_npd_tool.html",
-        name=NAME,
-        github_url=GITHUB_URL,
-        title=NPD_TITLE,
-        tags=NPD_TAGS,
-        intro=NPD_INTRO,
-        confidentiality_note=NPD_CONFIDENTIALITY_NOTE,
-        architecture=NPD_ARCHITECTURE,
-        code_highlights=NPD_CODE_HIGHLIGHTS,
-        downloads=NPD_DOWNLOADS,
-        demo_products=NPD_DEMO_PRODUCTS,
-        demo_customers=NPD_DEMO_CUSTOMERS,
-        demo_total_annual_volume=NPD_DEMO_TOTAL_ANNUAL_VOLUME,
     )
 
 
