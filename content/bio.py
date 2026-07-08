@@ -14,7 +14,7 @@ BIO_PARAGRAPHS = [
     '<a href="https://www.upov.int/en/w/stories/st25-the-rice-variety-that-turned-saline-fields-into-opportunity-in-viet-nam-s-mekong-delta" '
     'target="_blank" rel="noopener noreferrer">ST25 rice</a>, '
     "crowned World's Best Rice three times, and home to a thriving shrimp farming and export "
-    "industry. Growing up around agriculture and aquaculture run on tight margins gave me an "
+    "industry. Growing up around agriculture and aquaculture run on tight margins was  "
     "early feel for how complex, real-world systems get optimised.",
     "That feel for systems shaped my career: 2.5 years in supply chain planning at COTY across "
     "Amsterdam and Barcelona, using statistical forecasting and predictive modelling to manage "

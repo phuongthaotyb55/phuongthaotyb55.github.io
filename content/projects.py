@@ -1,5 +1,20 @@
 PROJECTS = [
     {
+        "slug": "npd-forecasting-tool",
+        "title": "NPD Demand Forecasting Automation",
+        "summary": (
+            "An Excel VBA tool that automates new-product demand forecasting end-to-end: "
+            "market data import, SKU-level splitting, customer weighting, and export to a "
+            "demand-planning system. Built during my supply-chain internship; sanitized with "
+            "synthetic data for this showcase."
+        ),
+        "tags": ["Excel", "VBA", "Macros", "Demand Planning", "Automation"],
+        "repo_url": None,
+        "has_detail_page": True,
+        "status": None,
+        "category": "Internship Project",
+    },
+    {
         "slug": "temporal-graphs",
         "title": "Exploring Temporal Graphs with Constraint Programming with Single Agent",
         "summary": (

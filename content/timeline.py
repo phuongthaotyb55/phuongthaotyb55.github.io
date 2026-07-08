@@ -1,12 +1,6 @@
 TIMELINE = [
     {
-        "date": "Apr 2026",
-        "title": "IFoA Exam — CS1",
-        "org": "Institute and Faculty of Actuaries",
-        "location": None,
-    },
-    {
-        "date": "Sep 2025 – Expected Jul 2026",
+        "date": "Sep 2025 – Sep 2026",
         "title": "MSc Data-Intensive Analysis",
         "org": "University of St Andrews",
         "location": "St Andrews, UK",
