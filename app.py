@@ -5,7 +5,6 @@ from content.bio import (
     TAGLINE,
     HERO_HOOK,
     BIO_PARAGRAPHS,
-    FACT_CHIPS,
     EMAIL,
     GITHUB_URL,
 )
@@ -24,7 +23,6 @@ def index():
         tagline=TAGLINE,
         hero_hook=HERO_HOOK,
         bio=BIO_PARAGRAPHS,
-        fact_chips=FACT_CHIPS,
         timeline=TIMELINE,
         projects=PROJECTS,
         email=EMAIL,

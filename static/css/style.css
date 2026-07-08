@@ -103,15 +103,6 @@ section h2 {
 
 /* About */
 .about p { max-width: 720px; }
-.fact-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
-.chip {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  color: var(--color-muted);
-  padding: 0.4rem 0.85rem;
-  border-radius: 999px;
-  font-size: 0.85rem;
-}
 
 /* Timeline */
 .timeline {
