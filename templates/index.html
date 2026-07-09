@@ -14,7 +14,7 @@
 
 <section id="about" class="about">
   <div class="container">
-    <h2>About</h2>
+    <h2>About Me</h2>
     <div class="section-underline"></div>
     {% for para in bio %}
     <p>{{ para | safe }}</p>
@@ -40,6 +40,29 @@
       </li>
       {% endfor %}
     </ol>
+  </div>
+</section>
+
+<section id="theory">
+  <div class="container">
+    <h2>Theory</h2>
+    <div class="section-underline"></div>
+    <div class="projects-grid">
+      {% for theory in theories %}
+      <div class="card">
+        <h3>{{ theory.title }}</h3>
+        <p>{{ theory.summary }}</p>
+        <div class="tag-row">
+          {% for tag in theory.tags %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% if theory.has_detail_page %}
+        <a class="card-link" href="/theory/{{ theory.slug }}/">View theory &rarr;</a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
 

@@ -22,8 +22,7 @@ BIO_PARAGRAPHS = [
     "problems. Coming from a non-STEM background, pivoting into tech came with plenty of "
     "self-doubt. But I decided to dive in properly, and I'm currently completing my MSc in "
     "Data-Intensive Analysis at the University of St Andrews.",
-    "Today, I'm building on that foundation with a focus on machine learning and temporal "
-    "graphs.",
+    "Today, I'm building on that foundation with a focus on machine learning and graph theory.",
     "Outside of work, I love cooking with a bit of improvisation. I believe a recipe, much "
     "like a piece of work, is really just a first draft.",
     "If you'd like to get in touch, you can find me in the Contact section below ;)",

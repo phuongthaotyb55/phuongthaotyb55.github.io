@@ -11,6 +11,7 @@ from content.bio import (
 from content.projects import PROJECTS
 from content.temporal_graphs import ALGORITHMS, GRAPH_TYPES, BENCHMARK_SUMMARY
 from content.timeline import TIMELINE
+from content.theories import THEORIES, DIJKSTRA
 
 app = Flask(__name__)
 
@@ -25,6 +26,7 @@ def index():
         bio=BIO_PARAGRAPHS,
         timeline=TIMELINE,
         projects=PROJECTS,
+        theories=THEORIES,
         email=EMAIL,
         github_url=GITHUB_URL,
     )
@@ -39,6 +41,16 @@ def project_temporal_graphs():
         algorithms=ALGORITHMS,
         graph_types=GRAPH_TYPES,
         benchmark_summary=BENCHMARK_SUMMARY,
+    )
+
+
+@app.route("/theory/dijkstra/")
+def theory_dijkstra():
+    return render_template(
+        "theory_dijkstra.html",
+        name=NAME,
+        github_url=GITHUB_URL,
+        theory=DIJKSTRA,
     )
 
 

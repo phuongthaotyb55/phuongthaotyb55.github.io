@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}{{ theory.name }} — {{ name }}{% endblock %}
+
+{% block content %}
+<section class="project-header">
+  <div class="container">
+    <a class="back-link" href="/#theory">&larr; Back to theory</a>
+    <h1>{{ theory.name }}</h1>
+    <p class="project-intro">{{ theory.intro | safe }}</p>
+    {% for para in theory.definition %}
+    <p class="theory-math">{{ para }}</p>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <h2>The Algorithm</h2>
+    <div class="section-underline"></div>
+    <div class="theory-steps">
+      {% for step in theory.steps %}
+      <div class="theory-step">
+        <span class="theory-step-label">{{ step.label }}</span>
+        <p class="theory-math theory-formula">$${{ step.formula }}$$</p>
+        <p class="theory-step-note">{{ step.note }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <p class="theory-math">{{ theory.complexity }}</p>
+    <p class="theory-math">{{ theory.connection }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Try it: Simple Network Simulation</h2>
+    <div class="section-underline"></div>
+    <p class="project-intro">
+      A plain static graph, no temporal edges — pick a source and target and step
+      through Dijkstra's algorithm to see the relaxation and selection rules above in
+      action.
+    </p>
+    <div class="demo-panel">
+      <div id="dijkstra-demo-root">
+        <div class="dijkstra-controls">
+          <label class="demo-field">
+            Source
+            <select data-in="source"></select>
+          </label>
+          <label class="demo-field">
+            Target
+            <select data-in="target"></select>
+          </label>
+          <button type="button" class="btn btn-primary" data-action="play">▶ Play</button>
+          <button type="button" class="btn btn-outline" data-action="step">Step</button>
+          <button type="button" class="btn btn-outline" data-action="reset">Reset</button>
+        </div>
+        <div class="dijkstra-layout">
+          <div data-out="svg" class="dijkstra-svg-wrap"></div>
+          <div class="dijkstra-log" data-out="log"></div>
+        </div>
+        <div data-out="result"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+<script src="{{ url_for('static', filename='js/dijkstra-demo.js') }}" defer></script>
+
+<div style="height: 3rem;"></div>
+{% endblock %}
