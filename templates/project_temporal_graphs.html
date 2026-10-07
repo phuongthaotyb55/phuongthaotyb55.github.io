@@ -16,7 +16,10 @@
       This project generates temporal graphs and implements multiple algorithms to
       solve the Temporal Exploration Problem (TEXP): given a temporal graph, find a
       time-respecting walk starting from node 1 that visits every node within
-      <code>t_max</code> timesteps, or as early as possible.
+      <code>t_max</code> timesteps, or as early as possible. A Max Coverage variant
+      asks the opposite question when <code>t_max</code> is too short: which walk visits
+      the most distinct nodes? The methods are benchmarked on 945 synthetic graphs
+      and applied to a real case study, ScotRail's weekday timetable.
     </p>
 
     <img class="project-image" src="{{ url_for('static', filename='images/projects/temporal-graphs/exploration-path-example.png') }}"
@@ -61,25 +64,84 @@
 
 <section class="section-alt">
   <div class="container">
-    <h2>Benchmarking</h2>
+    <h2>Benchmarking on Synthetic Graphs</h2>
     <div class="section-underline"></div>
     <p>{{ benchmark_summary }}</p>
+    <div class="algorithm-list">
+      {% for finding in synthetic_findings %}
+      <div class="algorithm-item">
+        <h3>{{ finding.title }}</h3>
+        <p>{{ finding.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="table-scroll">
+      <table class="sample-table">
+        <thead>
+          <tr>{% for col in success_by_graph_type.columns %}<th>{{ col }}</th>{% endfor %}</tr>
+        </thead>
+        <tbody>
+          {% for row in success_by_graph_type.rows %}
+          <tr>{% for cell in row %}<td>{{ cell }}</td>{% endfor %}</tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="image-caption">Full-coverage success rate by graph type and method, across all 945 trials.</p>
     <img class="project-image" src="{{ url_for('static', filename='images/projects/temporal-graphs/scaling-regression-plot.png') }}"
-         alt="Empirical runtime vs theoretical complexity bound scaling plot">
+         alt="MiniZinc solve time against the theoretical bound on a log-log scale">
     <p class="image-caption">
-      Empirical runtime vs. theoretical complexity bound across MiniZinc trials.
+      MiniZinc solve time against the O(n<sup>1.5</sup>&radic;(D log n)) bound on the 592 trials
+      where CP found a full exploration (slope 1.22, R<sup>2</sup> = 0.50). Solve time grows
+      with problem size, so the polynomial bounds from the literature are a reasonable
+      first-order guide to how the model scales.
     </p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Try it Live</h2>
+    <h2>Case Study: Max Coverage on ScotRail</h2>
+    <div class="section-underline"></div>
+    <p>{{ scotrail_summary }}</p>
+    <div class="table-scroll">
+      <table class="sample-table">
+        <thead>
+          <tr>{% for col in scotrail_results.columns %}<th>{{ col }}</th>{% endfor %}</tr>
+        </thead>
+        <tbody>
+          {% for row in scotrail_results.rows %}
+          {% set is_best = loop.index0 == scotrail_results.best_row %}
+          <tr>{% for cell in row %}<td>{% if is_best %}<strong>{{ cell }}</strong>{% else %}{{ cell }}{% endif %}</td>{% endfor %}</tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="image-caption">Max Coverage results from Edinburgh, 06:00–22:00, over the 126 contracted stations.</p>
+    <p>{{ scotrail_findings }}</p>
+    <img class="project-image" src="{{ url_for('static', filename='images/projects/temporal-graphs/scotrail-network.png') }}"
+         alt="ScotRail weekday network with the 32-station CP route highlighted in red">
+    <p class="image-caption">
+      The contracted ScotRail weekday network. The red route is the 32-station walk found by the
+      warm-started CP model at max_hops = 60.
+    </p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <h2>Conclusion</h2>
+    <div class="section-underline"></div>
+    <p>{{ conclusion }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Temporal Graph Generator</h2>
     <div class="section-underline"></div>
     <p class="project-intro">
-      Generates a random temporal graph and solves it entirely in your browser
-      (via <a href="https://pyodide.org/" target="_blank" rel="noopener noreferrer">Pyodide</a> —
-      no server involved), using a dependency-free port of the algorithms above.
+      Generates a random temporal graph based on custom nodes, graph type, and temporal diameter.
     </p>
     <div id="demo-root" data-demo-src="{{ url_for('static', filename='py/temporal_demo.py') }}">
       <noscript>This demo requires JavaScript.</noscript>

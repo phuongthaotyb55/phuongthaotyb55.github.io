@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{{ name }}{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block extra_head %}{% endblock %}
 </head>
 <body>
   <header class="nav">
@@ -13,7 +14,6 @@
       <nav class="nav-links">
         <a href="/#about">About</a>
         <a href="/#timeline">Timeline</a>
-        <a href="/#theory">Theory</a>
         <a href="/#projects">Projects</a>
         <a href="/#contact">Contact</a>
         <a href="{{ github_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -25,11 +25,5 @@
     {% block content %}{% endblock %}
   </main>
 
-  <footer>
-    <div class="container">
-      &copy; {{ name }}. Built with Flask, deployed on GitHub Pages.
-      &middot; <a href="{{ github_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </div>
-  </footer>
 </body>
 </html>

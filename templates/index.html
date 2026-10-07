@@ -4,7 +4,6 @@
 <section class="hero">
   <div class="container">
     <h1>{{ tagline }}</h1>
-    <p class="hook">{{ hero_hook }}</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="#projects">View Projects</a>
       <a class="btn btn-outline" href="#contact">Get in Touch</a>
@@ -43,29 +42,6 @@
   </div>
 </section>
 
-<section id="theory">
-  <div class="container">
-    <h2>Theory</h2>
-    <div class="section-underline"></div>
-    <div class="projects-grid">
-      {% for theory in theories %}
-      <div class="card">
-        <h3>{{ theory.title }}</h3>
-        <p>{{ theory.summary }}</p>
-        <div class="tag-row">
-          {% for tag in theory.tags %}
-          <span class="tag">{{ tag }}</span>
-          {% endfor %}
-        </div>
-        {% if theory.has_detail_page %}
-        <a class="card-link" href="/theory/{{ theory.slug }}/">View theory &rarr;</a>
-        {% endif %}
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
 <section id="projects" class="section-alt">
   <div class="container">
     <h2>Projects</h2>
@@ -89,8 +65,8 @@
           {% endfor %}
         </div>
         {% if project.has_detail_page %}
-        <a class="card-link" href="/projects/{{ project.slug }}/">View project &rarr;</a>
-        {% else %}
+        <a class="card-link" href="{{ project.detail_url if project.detail_url else '/projects/' ~ project.slug ~ '/' }}">View {{ 'theory' if project.category == 'Theory' else 'project' }} &rarr;</a>
+        {% elif project.repo_url %}
         <a class="card-link" href="{{ project.repo_url }}" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
         {% endif %}
       </div>

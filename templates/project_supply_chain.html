@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Demand Forecasting & Late Delivery Risk — {{ name }}{% endblock %}
+
+{% block content %}
+<section class="project-header">
+  <div class="container">
+    <a class="back-link" href="/#projects">&larr; Back to projects</a>
+    <h1>Demand Forecasting & Late Delivery Risk</h1>
+    <div class="tag-row">
+      {% for tag in ["Python", "pandas", "scikit-learn", "Time Series"] %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    <p class="project-intro">
+      Forecasts daily category-level demand and predicts late-delivery risk at order placement on
+      ~180,000 supply chain order records. A residual Random Forest beats a naive rolling-average
+      baseline by ~2% MAE. Shipping mode and the promised delivery window are the strongest drivers
+      of late delivery (ROC-AUC 0.74). The full notebook is embedded below.
+    </p>
+    <a class="btn btn-outline" href="{{ repo_url }}" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="notebook-frame-wrap">
+      <iframe class="notebook-frame" src="{{ url_for('static', filename='notebooks/supply-chain.html') }}"
+              title="Demand Forecasting & Late Delivery Risk notebook" loading="lazy"></iframe>
+      <p class="notebook-fallback">
+        Notebook not loading?
+        <a href="{{ url_for('static', filename='notebooks/supply-chain.html') }}" target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

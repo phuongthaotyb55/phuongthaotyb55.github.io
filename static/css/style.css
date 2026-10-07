@@ -207,15 +207,6 @@ section h2 {
 .contact-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
 .contact-list a { font-weight: 600; }
 
-/* Footer */
-footer {
-  border-top: 1px solid var(--color-border);
-  padding: 2rem 0;
-  color: var(--color-muted);
-  font-size: 0.85rem;
-  text-align: center;
-}
-
 /* Project detail page */
 .back-link { display: inline-block; margin-bottom: 1.5rem; font-weight: 600; }
 .project-header h1 { color: var(--color-primary); margin-bottom: 0.75rem; }
@@ -369,6 +360,13 @@ footer {
 .theory-block { margin-bottom: 2rem; }
 .theory-block h3 { color: var(--color-primary); margin-bottom: 0.5rem; }
 .theory-math { max-width: 720px; }
+.theory-state-list {
+  max-width: 720px;
+  margin: 0.5rem 0 1.5rem;
+  padding-left: 1.25rem;
+  color: var(--color-ink);
+}
+.theory-state-list li { margin-bottom: 0.5rem; }
 .theory-steps {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -447,3 +445,81 @@ footer {
 }
 .dijkstra-log-line { padding: 0.25rem 0; border-bottom: 1px solid var(--color-border); }
 .dijkstra-log-line:last-child { border-bottom: none; }
+
+.table-scroll { overflow-x: auto; margin: 1rem 0; }
+.sample-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.88rem;
+  background: var(--color-surface);
+}
+.sample-table th, .sample-table td {
+  text-align: left;
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.sample-table th {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+.sample-table tbody tr:nth-child(even) { background: var(--color-primary-tint); }
+.dijkstra-edge-table { max-width: 320px; }
+.dijkstra-edge-table td:first-child, .dijkstra-edge-table th:first-child { white-space: nowrap; }
+.dijkstra-trace-table td:nth-child(4) { min-width: 260px; }
+.dijkstra-update-line { padding: 0.15rem 0; }
+.dijkstra-update-line:last-child { margin-top: 0.3rem; color: var(--color-accent-dark); font-weight: 600; }
+
+/* Rendered README (SQL case study project) */
+.markdown-body { max-width: 760px; }
+.markdown-body h1 { display: none; } /* the page's own <h1> already shows the title */
+.markdown-body h2 { color: var(--color-primary); margin-top: 2rem; }
+.markdown-body h3 { color: var(--color-ink); margin-top: 1.5rem; }
+.markdown-body p { color: var(--color-ink); }
+.markdown-body ul, .markdown-body ol { color: var(--color-ink); }
+.markdown-body hr { border: none; border-top: 1px solid var(--color-border); margin: 2rem 0; }
+.markdown-body pre {
+  background: var(--color-primary-tint);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+.markdown-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.markdown-body :not(pre) > code {
+  background: var(--color-primary-tint);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.markdown-body table {
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin: 0.75rem 0 1.5rem;
+}
+.markdown-body th, .markdown-body td {
+  text-align: left;
+  padding: 0.35rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.markdown-body th { color: var(--color-muted); font-weight: 600; }
+.markdown-body blockquote {
+  border-left: 3px solid var(--color-accent);
+  margin: 1rem 0;
+  padding: 0.25rem 1rem;
+  color: var(--color-muted);
+}
+.markdown-body .mermaid { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+
+/* Notebook embed (Fraud Detection project) */
+.notebook-frame-wrap { margin-top: 1.5rem; }
+.notebook-frame {
+  width: 100%;
+  height: 85vh;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+.notebook-fallback { color: var(--color-muted); font-size: 0.9rem; margin-top: 0.5rem; }

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Fraud Detection on Imbalanced Transactions — {{ name }}{% endblock %}
+
+{% block content %}
+<section class="project-header">
+  <div class="container">
+    <a class="back-link" href="/#projects">&larr; Back to projects</a>
+    <h1>Fraud Detection on Imbalanced Transactions</h1>
+    <div class="tag-row">
+      {% for tag in ["Python", "scikit-learn", "XGBoost", "imbalanced-learn"] %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    <p class="project-intro">
+      Builds a fraud classifier on 284,807 credit-card transactions, where only 0.17% are
+      fraudulent. The project's focus is a leakage-free evaluation pipeline: SMOTE oversampling
+      runs only inside cross-validation, decision thresholds are
+      chosen using out-of-fold training probabilities.
+    </p>
+    <p class="project-intro">
+      <strong>Main findings.</strong> At the default 0.5 threshold, SMOTE badly miscalibrates
+      Logistic Regression, that returns the precision to only 5%
+      (F1 0.10), even though it catches 87% of fraud. Tuning the threshold on cross-validated
+      probabilities fixes this almost entirely, and lifting F1 to 0.80 (precision 86%, recall 76%).
+      XGBoost, trained with
+      class-weighting instead of SMOTE, does not suffer this miscalibration in the first place.
+      It reaches F1 0.85 and PR-AUC 0.82 at a far more moderate threshold (0.85), making it the
+      best-performing and most reliable model overall. The comparison across models shows that
+      <em>how</em> you handle class imbalance matters as much as which model you pick.
+    </p>
+    <a class="btn btn-outline" href="{{ repo_url }}" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="notebook-frame-wrap">
+      <iframe class="notebook-frame" src="{{ url_for('static', filename='notebooks/fraud-detection.html') }}"
+              title="Fraud Detection notebook" loading="lazy"></iframe>
+      <p class="notebook-fallback">
+        Notebook not loading?
+        <a href="{{ url_for('static', filename='notebooks/fraud-detection.html') }}" target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

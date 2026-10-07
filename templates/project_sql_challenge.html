@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Danny's Diner: SQL Case Study — {{ name }}{% endblock %}
+
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: "default" });</script>
+{% endblock %}
+
+{% block content %}
+<section class="project-header">
+  <div class="container">
+    <a class="back-link" href="/#projects">&larr; Back to projects</a>
+    <h1>Danny's Diner: SQL Case Study</h1>
+    <div class="tag-row">
+      {% for tag in ["SQL", "MySQL"] %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    <p class="project-intro">
+      <a class="btn btn-outline" style="margin-top: 0.75rem; display: inline-block;"
+         href="{{ repo_url }}" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="markdown-body">
+      {{ readme_html | safe }}
+    </div>
+  </div>
+</section>
+{% endblock %}

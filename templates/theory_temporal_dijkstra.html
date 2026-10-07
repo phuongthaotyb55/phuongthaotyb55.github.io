@@ -47,11 +47,11 @@
     <div class="table-scroll">
       <table class="sample-table dijkstra-edge-table">
         <thead>
-          <tr><th>Edge</th><th>Weight</th></tr>
+          <tr><th>Edge</th><th>Active times</th></tr>
         </thead>
         <tbody>
-          {% for u, v, w in theory.worked_example.edges %}
-          <tr><td>{{ u }} &ndash; {{ v }}</td><td>{{ w }}</td></tr>
+          {% for u, v, times in theory.worked_example.edges %}
+          <tr><td>{{ u }} &ndash; {{ v }}</td><td>{{ times }}</td></tr>
           {% endfor %}
         </tbody>
       </table>
@@ -82,7 +82,7 @@
     <p class="project-intro">{{ theory.worked_example.result }}</p>
 
     <div class="demo-panel">
-      <div id="dijkstra-demo-root">
+      <div id="temporal-dijkstra-demo-root">
         <div class="dijkstra-controls">
           <label class="demo-field">
             Source
@@ -110,7 +110,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
   onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
-<script src="{{ url_for('static', filename='js/dijkstra-demo.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/temporal-dijkstra-demo.js') }}" defer></script>
 
 <div style="height: 3rem;"></div>
 {% endblock %}
